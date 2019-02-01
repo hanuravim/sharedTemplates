@@ -4,18 +4,15 @@
     "parameters": {
         "ResourceGroupLocation": {
             "type": "string"
-            
         },
         "strCount": {
             "type": "int"
         },
         "StorageAccountName": {
             "type": "string"
-           
         },
         "StorageAccountType": {
             "type": "string"
-            
         }
     },
     "variables": {},
