@@ -1,29 +1,35 @@
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "ResourceGroupLocation": {
+            "type": "string"
+            
+        },
+        "strCount": {
+            "type": "int"
+        },
         "StorageAccountName": {
             "type": "string"
-        },
-        "StorageAccountKind": {
-            "type": "string"
+           
         },
         "StorageAccountType": {
             "type": "string"
-        },
-        "location": {
-            "type": "string"
+            
         }
     },
     "variables": {},
     "resources": [
         {
-            "name": "[parameters('StorageAccountName')]",
+            "name": "[concat(parameters('StorageAccountName'),copyindex(1))]",
             "type": "Microsoft.Storage/storageAccounts",
+            "location": "[parameters('ResourceGroupLocation')]",
             "apiVersion": "2018-07-01",
-            "location": "[parameters('location')]",
+            "copy": {
+                "name": "storageloop",
+                "count": "[parameters('strCount')]"
+            },
             "properties": {},
-            "kind": "[parameters('StorageAccountKind')]",
             "sku": {
                 "name": "[parameters('StorageAccountType')]"
             },
