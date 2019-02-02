@@ -5,9 +5,6 @@
         "ResourceGroupLocation": {
             "type": "string"
         },
-        "strCount": {
-            "type": "int"
-        },
         "StorageAccountName": {
             "type": "string"
         },
@@ -18,14 +15,10 @@
     "variables": {},
     "resources": [
         {
-            "name": "[concat(parameters('StorageAccountName'),copyindex(1))]",
+            "name": "[concat(parameters('StorageAccountName')]",
             "type": "Microsoft.Storage/storageAccounts",
             "location": "[parameters('ResourceGroupLocation')]",
             "apiVersion": "2018-07-01",
-            "copy": {
-                "name": "storageloop",
-                "count": "[parameters('strCount')]"
-            },
             "properties": {},
             "sku": {
                 "name": "[parameters('StorageAccountType')]"
