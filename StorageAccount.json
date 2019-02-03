@@ -15,7 +15,7 @@
     "variables": {},
     "resources": [
         {
-            "name": "[concat(parameters('StorageAccountName')]",
+            "name": "[parameters('StorageAccountName')]",
             "type": "Microsoft.Storage/storageAccounts",
             "location": "[parameters('ResourceGroupLocation')]",
             "apiVersion": "2018-07-01",
